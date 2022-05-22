@@ -4,7 +4,7 @@
 int main()
 {
     
-    double x = 1.23 ;
+    double x = 1111.23;
 
     std::cout << x;
 }
