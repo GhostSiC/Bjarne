@@ -2,9 +2,10 @@
 #include <iostream>
 #include "Vector.h"
 #include <cmath>
+#include <complex>
 
 
-//Pointers, Arrays, and Loops
+// Pointers, Arrays, and Loops
 namespace Section_2 {
 
     int count_x(char* p, char x) {
@@ -28,7 +29,7 @@ namespace Section_2 {
     }
 }
 
-//Structures
+// Structures
 namespace Section_3_1 {
 
     struct Vector
@@ -66,7 +67,7 @@ namespace Section_3_1 {
     }
 }
 
-//Classes
+// Classes
 namespace Section_3_2 {
 
     class Vector {
@@ -102,7 +103,7 @@ namespace Section_3_2 {
     }
 }
 
-//Enumerations
+// Enumerations
 namespace Section_3_3 {
 
     enum class Color {red, blue, green};
@@ -135,7 +136,7 @@ namespace Section_3_3 {
     }
 }
 
-//Modularity - Modu³owoœæ
+// Modularity - Modu³owoœæ
 namespace Section_4_0 {
 
     double sqrt(double);
@@ -181,7 +182,7 @@ namespace Section_4_0 {
     }
 }
 
-//Separate Compilation
+// Separate Compilation
 namespace Section_4_1 {
 
     double sqrt_sum(Vector& v) {
@@ -206,9 +207,29 @@ namespace Section_4_1 {
     }
 }
 
+// Namespaces
+namespace Section_4_2 {
+
+    namespace My_code {
+        class complex {};
+        complex sqrt(complex);
+
+        int main();
+    }
+
+    int My_code::main() {
+
+        std::complex<double> z{ 1, 2};
+        auto z2 = sqrt(z);
+        std::cout << '{' << z2.real() << ',' << z2.imag() << "}\n";
+
+        return 0;
+    }
+}
+
 int main()
 {
-    Section_4_1::main();
+    Section_4_2::My_code::main();
 
     return 0;
 }
