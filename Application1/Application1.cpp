@@ -227,9 +227,75 @@ namespace Section_4_2 {
     }
 }
 
+// Exceptions
+namespace Section_4_3_1 {
+
+    void f(Vector& v) {
+        try {
+            v[v.size()] = 7;
+        }
+        catch (std::out_of_range) {
+            std::cout << "out_of_range\n";
+        }
+    }
+
+
+    int main() {
+
+        Vector v(4);
+        f(v);
+
+        return 0;
+    }
+}
+
+// Invariants
+namespace Section_4_3_2 {
+
+    void test() {
+        try {
+            Vector v(-2);
+        }
+        catch (std::length_error) {
+            std::cout << "negative size\n";
+        }
+        catch (std::bad_alloc) {
+            std::cout << "memory exhaustion\n";
+        }
+
+    }
+
+    int main() {
+        test();
+        return 0;
+    }
+}
+
+// Static Assertions
+namespace Section_4_3_3 {
+
+    constexpr double C = 299792.458;
+
+    void f(double speed) {
+        const double local_max = 160.0 / (60 * 60);
+
+        //static_assert(speed < C, "can't go that fast"); //error must be constant value
+        static_assert(local_max < C, "can't go that fast");
+    }
+
+
+    int main() {
+        static_assert(4 <= sizeof(int), "integers are too small");
+
+        f(166.90);
+
+        return 0;
+    }
+}
+
 int main()
 {
-    Section_4_2::My_code::main();
+    Section_4_3_3::main();
 
     return 0;
 }
