@@ -17,18 +17,12 @@ public:
 
     Complex& operator *= (Complex z) { re *= z.re, im *= z.im; return *this; }
     Complex& operator /= (Complex z) { re /= z.re, im /= z.im; return *this; }
-
-
 };
 
-Complex operator + (Complex a, Complex b) { return a += b; } // must be out of class
-Complex operator - (Complex a, Complex b) { return a -= b; }
-Complex operator - (Complex a) { return { a.real(), a.imag() }; }
-Complex operator * (Complex a, Complex b) { return a *= b; }
-Complex operator / (Complex a, Complex b) { return a /= b; }
-bool operator == (Complex a, Complex b) {
-    return a.real() == b.real() && a.imag() == b.imag();
-}
-bool operator != (Complex a, Complex b) {
-    return !(a == b);
-}
+Complex operator + (Complex a, Complex b); // must be out of class
+Complex operator - (Complex a, Complex b);
+Complex operator - (Complex a);
+Complex operator * (Complex a, Complex b);
+Complex operator / (Complex a, Complex b);
+bool operator == (Complex a, Complex b);
+bool operator != (Complex a, Complex b);

@@ -93,12 +93,12 @@ namespace Section_2_2
 namespace Section_2_2_4
 {
 
-    /*
-    void rotate_all(vector<Shape*>& v, int angel)
-    {
-        for (auto& p : v)
-            p->rotate(angel);
-    }*/
+    
+    //void rotate_all(vector<Shape*>& v, int angel)
+    //{
+    //    for (auto& p : v)
+    //        p->rotate(angel);
+    //}
 
     int main() 
     {
@@ -140,21 +140,10 @@ namespace Section_3_1
     }
 }
 
-// Moving Containers 
-namespace Section_3_2
-{
-    int main() 
-    {
-        std::cout << "a\n";
-
-        return 0;
-    }
-}
-
 int main()
 {
 
-    Section_3_2::main();
+    Section_3_1::main();
 
     return 0;
 }
