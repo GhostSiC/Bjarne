@@ -140,10 +140,50 @@ namespace Section_3_1
     }
 }
 
+// test unique_ptr and operator << 
+namespace self_test_1
+{
+
+    int main()
+    {
+        std::unique_ptr<aby> yy(new aby(1, 2));
+
+        std::cout << *yy << '\n';
+
+        return 0;
+    }
+}
+
+// test Inheritance
+namespace self_test_2
+{
+
+    class A{
+    public:
+        A() { std::cout << "A"; }
+        ~A() { std::cout << "~A"; }
+    };
+
+    class B : A{
+    public:
+        B() { std::cout << "B"; }
+        ~B() { std::cout << "~B"; }
+    };
+
+
+    int main()
+    {
+        std::unique_ptr<B> b(new B());
+
+        return 0;
+    }
+}
+
 int main()
 {
 
-    Section_3_1::main();
+    self_test_2::main();
+
 
     return 0;
 }

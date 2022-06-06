@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 class Complex {
     double re, im;
@@ -26,3 +27,18 @@ Complex operator * (Complex a, Complex b);
 Complex operator / (Complex a, Complex b);
 bool operator == (Complex a, Complex b);
 bool operator != (Complex a, Complex b);
+
+
+class aby {
+private:
+    int x, y;
+public:
+    aby(int x, int y) {
+        this->x = x;
+        this->y = y;
+    }
+
+    void prt() { std::cout << "x: " << x << " | y:" << y; };
+
+    friend std::ostream& operator << (std::ostream& os, const aby& z);
+};
