@@ -11,8 +11,11 @@ public:
 	Vector(std::initializer_list<double> lst);
 	~Vector() { delete[] elem; }
 
-	Vector(const Vector& a);			// copy constr uctor
-	Vector& operator=(const Vector& a);	// copy assignment
+	Vector(const Vector&);			// copy constr uctor
+	Vector& operator=(const Vector&);	// copy assignment
+
+	Vector(Vector&&);					// && rvalue
+	Vector& operator=(const Vector&&);
 
 	double& operator[](int i);
 	double& operator[](int i) const;

@@ -1,7 +1,16 @@
 #include <iostream>
-#include "Vector_container.h"
-#include "Complex.h"
+#include <vector>
+//  #include "Vector_container_3.h"
+//  #include "Complex_3.h"
 
+#include "Vector_4.h"
+#include <complex>
+
+
+/*
+* 
+* Use here Vector_container_3 and Complex_3
+* 
 namespace Section_2_1_1 {
 
     void f(Complex z) {
@@ -93,7 +102,6 @@ namespace Section_2_2
 namespace Section_2_2_4
 {
 
-    
     //void rotate_all(vector<Shape*>& v, int angel)
     //{
     //    for (auto& p : v)
@@ -143,13 +151,10 @@ namespace Section_3_1
 // test unique_ptr and operator << 
 namespace self_test_1
 {
-
     int main()
     {
         std::unique_ptr<aby> yy(new aby(1, 2));
-
         std::cout << *yy << '\n';
-
         return 0;
     }
 }
@@ -179,11 +184,161 @@ namespace self_test_2
     }
 }
 
+// Moving Containers
+namespace Section_3_2
+{
+    Vector f() {
+        Vector x(1000);
+        Vector y(1000);
+        Vector z(1000);
+
+        z = x;
+        y = std::move(x);
+
+        return z;
+    }
+
+    int main()
+    {
+        f();
+
+        return 0;
+    }
+}
+
+// Suppressing Operations
+namespace Section_3_4
+{
+    Vector f() {
+        Vector x(1000);
+        Vector y(1000);
+        Vector z(1000);
+
+        z = x;
+        y = std::move(x);
+
+        return z;
+    }
+
+    int main()
+    {
+        f();
+
+        return 0;
+    }
+}
+
+*/
+
+// Templates
+
+namespace Section_4_1
+{
+    void write(const Vector<std::string>& vs) {
+        for (int i = 0; i != vs.size(); ++i)
+            std::cout << vs[i] << '\n';
+    }
+
+    template<typename T>
+    void f2(const Vector<T>& vs) {
+        for (auto& s : vs)
+            std::cout << s << '\n';
+    }
+
+    template<typename T>
+    void f3(Vector<T>& vs) {
+        for (int i = 0; i != vs.size(); ++i)
+            vs[i] = "a";
+    }
+
+    int main()
+    {
+        Vector<char> vc(200);
+        Vector<std::string> vs(200);
+        Vector<std::list<int>> vli(200);
+
+        //write(vs);
+        f3(vs);
+        f2(vs);
+
+        return 0;
+    }
+}
+
+namespace Section_4_2
+{
+    template<typename T>
+    class Less_than {
+        const T val;
+    public:
+        Less_than(const T& v) : val(v) {}
+        bool operator()(const T& x) const { return x < val; }
+    };
+
+    template<typename C, typename P>
+    int count(const C& c, P pred)
+    {
+        int cnt = 0;
+        for (const auto& x : c)
+            if (pred(x))
+                ++cnt;
+        return cnt;
+    }
+
+    void f(
+        const Vector<int>& vec,
+        const std::list<std::string>& lst,
+        int x,
+        const std::string& s
+    )
+    {
+        std::cout << count(vec, Less_than<int>{x});
+    }
+
+    int main() {
+
+        Less_than<int> lti{ 42 };
+        Less_than<std::string> lts{"Backus"};
+
+        bool b1 = lti(23);
+        bool b2 = lts("ABackus");
+
+        //std::cout << b1 << '\n';
+        //std::cout << b2 << '\n';
+
+        //f(lti, lts, 10, "ABackus");
+        //std::cout << count(lti, Less_than<int>{12});
+
+        return 0;
+    }
+}
+
+namespace self_test_3 {
+
+    int main() {
+
+        int n = 12;
+        char* buffer;
+
+        buffer = (char*)malloc(n + 1);
+
+        if (buffer == NULL) return 0;
+
+        for (int i = 0; i < n; i++)
+            buffer[i] = rand() % 26 + 'a';
+        
+        buffer[n] = '\0';
+
+        free(buffer);
+
+        return 0;
+    }
+}
+
 int main()
 {
 
-    self_test_2::main();
-
+    self_test_3::main();
 
     return 0;
 }

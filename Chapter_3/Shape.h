@@ -3,8 +3,16 @@
 class Shape
 {
 };
+
 /*
 public:
+
+	Shape(const Shape&) = delete;		// no copy operations
+	Shape& operator=(Shape&) = delete;
+	
+	Shape(const Shape&&) = delete;		// no move operations
+	Shape& operator=(Shape&&) = delete;
+
 	virtual Point center() const = 0;
 	virtual void move(Point to) = 0;
 

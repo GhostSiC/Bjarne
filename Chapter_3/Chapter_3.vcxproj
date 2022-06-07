@@ -139,19 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Complex.cpp" />
+    <ClCompile Include="Complex_3.cpp" />
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Shape.cpp" />
-    <ClCompile Include="Vector.cpp" />
-    <ClCompile Include="Vector_container.cpp" />
+    <ClCompile Include="Vector_3.cpp" />
+    <ClCompile Include="Vector_4.cpp" />
+    <ClCompile Include="Vector_container_3.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Complex.h" />
+    <ClInclude Include="Complex_3.h" />
     <ClInclude Include="Container.h" />
     <ClInclude Include="Shape.h" />
-    <ClInclude Include="Vector.h" />
-    <ClInclude Include="Vector_container.h" />
+    <ClInclude Include="Vector_3.h" />
+    <ClInclude Include="Vector_4.h" />
+    <ClInclude Include="Vector_container_3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -18,30 +18,42 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vector.cpp">
+    <ClCompile Include="Vector_3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Container.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vector_container.cpp">
+    <ClCompile Include="Vector_container_3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Shape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Complex_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector_4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Vector.h">
+    <ClInclude Include="Vector_3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Container.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vector_container.h">
+    <ClInclude Include="Vector_container_3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Shape.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Complex_3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector_4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

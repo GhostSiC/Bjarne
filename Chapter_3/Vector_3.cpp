@@ -1,4 +1,4 @@
-#include "Vector.h"
+#include "Vector_3.h"
 
 Vector::Vector(int s) : elem{new double[s]}, sz{s}
 {
@@ -23,6 +23,22 @@ Vector& Vector::operator=(const Vector& a)	// copy assignment
 	for (int i = 0; i != a.sz; ++i)
 		p[i] = a.elem[i];
 	delete[] elem;					// delete old elements
+	elem = p;
+	sz = a.sz;
+	return *this;
+}
+Vector::Vector(Vector&& a)			//private: we dont copy but change pointer
+	: elem{a.elem}, sz{a.sz}
+{
+	a.elem = nullptr;
+	a.sz = 0;
+}
+Vector& Vector::operator=(const Vector&& a)
+{
+	double* p = new double[a.sz];
+	for (int i = 0; i != a.sz; ++i)
+		p[i] = a.elem[i];
+	delete[] elem;
 	elem = p;
 	sz = a.sz;
 	return *this;
